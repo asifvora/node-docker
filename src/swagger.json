@@ -1,0 +1,203 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Demo Node.js API"
+    },
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API for users in the system"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/users/singin": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Singin user in system",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {}
+            }
+        },
+        "/users/singup": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Singup new user in system",
+                "parameters": [
+                    {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "First Name",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "Last Name",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {}
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users in system",
+                "responses": {}
+            }
+        },
+        "/users/{userId}": {
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of user that we want to find",
+                    "type": "string"
+                }
+            ],
+            "delete": {
+                "summary": "Delete user with given ID",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {}
+            },
+            "put": {
+                "summary": "Update user with give ID",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "firstName",
+                        "in": "formData",
+                        "description": "First Name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastName",
+                        "in": "formData",
+                        "description": "Last Name",
+                        "type": "number"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Email",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Password",
+                        "type": "string"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/users/{userId}/change-password": {
+            "parameters": [
+                {
+                    "name": "userId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of user that we want to change password",
+                    "type": "string"
+                }
+            ],
+            "patch": {
+                "summary": "Change user password",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "name": "oldPassword",
+                        "in": "formData",
+                        "description": "Old Password",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "newPassword",
+                        "in": "formData",
+                        "description": "New Password",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "securityDefinitions": {
+        "token": {
+            "type": "apiKey",
+            "name": "token",
+            "description": "API key to authorize requests",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+          "token": []
+        }
+    ]
+}

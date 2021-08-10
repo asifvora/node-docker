@@ -30,7 +30,7 @@ app.use(requestValidator());
 
 app.get('/', (req, res) => {
   res.status(200).json({
-    message: 'Welcome to Sajjanpur',
+    message: 'Welcome to Node API\'s',
   });
 });
 

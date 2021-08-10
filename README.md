@@ -26,6 +26,23 @@ $ npm run dev
 ```
 - Go to `http://localhost:PORT_NUMBER` to see the app running
 
+## Docker build
+```sh
+$ docker build -t <docker-image-name> <filepath>
+$ docker build -t my-node-app .
+$ docker image ls
+```
+
+## Run a Container
+```sh
+$ docker run -d -p <Host port>:<Docker port> <docker-image-name>
+$ docker run -d -p 8080:8080 my-node-app
+$ <image-id>
+```
+## Check the running container
+```sh
+$ docker ps -a
+```
 ## Code Structure
 
 This codebase follows MVC pattern with few additional layers.

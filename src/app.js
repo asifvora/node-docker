@@ -3,7 +3,7 @@ const requestValidator = require('express-validator');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const swaggerUi = require('swagger-ui-express');
-const helmet = require('helmet')
+const helmet = require('helmet');
 const swaggerDocument = require('./swagger.json');
 
 const result = dotenv.config();
@@ -30,7 +30,7 @@ app.use(requestValidator());
 
 app.get('/', (req, res) => {
   res.status(200).json({
-    msg: 'Welcome',
+    message: 'Welcome to Sajjanpur',
   });
 });
 
@@ -38,7 +38,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(allRoutes);
 
 app.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}.`);
+  console.log(`Server listening on port ${PORT}.`);
 });
 
 module.exports = app;

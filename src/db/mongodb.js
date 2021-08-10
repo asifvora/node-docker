@@ -1,45 +1,19 @@
-const mongoose = require('mongoose');
+const { MongoClient } = require('mongodb');
 
-mongoose.Promise = global.Promise;
+const username = 'asif';
+const password = 'vora';
+const MONGODB_URI = `mongodb+srv://${username}:${password}@cluster0.spkzc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
-const databaseName = 'asif-mern-app';
-const username = 'asifvora';
-const password = 'asifvora2743';
-const MONGODB_URI = `mongodb://${username}:${password}@ds047207.mlab.com:47207/${databaseName}`;
+// The database to use
+const dbName = 'test';
 
-const options = {
-  reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
-  reconnectInterval: 500, // Reconnect every 500ms
+const client = new MongoClient(MONGODB_URI, {
   useNewUrlParser: true,
-  useCreateIndex: true
-};
-
-// if (!process.env.MONGODB_URI) {
-//   console.log('Please set MONGO_URI');
-//   process.exit(-1);
-// }
-
-mongoose.connect(process.env.MONGODB_URI || MONGODB_URI, options);
-
-// mongoose.connect(process.env.MONGODB_URI, {
-//   auth: {
-//     user: username,
-//     password: password
-//   },
-//   options,
-// });
-
-mongoose.connection.on('connected', () => {
-  console.log('Connected to MongoDB');
+  useUnifiedTopology: true,
 });
 
-mongoose.connection.on('error', (err) => {
-  console.log('MongoDB connection error:', err);
-  process.exit(-1);
-});
+client.connect();
 
-mongoose.connection.on('disconnected', () => {
-  console.log('MongoDB disconnected');
-});
+const db = client.db(dbName);
 
-module.exports = mongoose;
+module.exports = db;

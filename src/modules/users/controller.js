@@ -4,27 +4,32 @@ const {
   validateUpdateUserRequest,
   validateChangePasswordRequest,
 } = require('./validators');
-const { createNewUser, loginUser, updateUser,
-  changeUserPassword, deleteUser, getUsers } = require('./services');
+const {
+  createNewUser, loginUser, updateUser,
+  changeUserPassword, deleteUser, getUsers,
+} = require('./services');
 const { sendResponse, handleCustomError } = require('../../utils');
 const ResponseMessages = require('../../constants/response-messages');
 
 const createNewUserController = async (req, res) => {
   try {
     const validationErr = validateCreateUserRequest(req);
-
     if (validationErr) {
       return sendResponse(res, 422, {}, validationErr[0].msg);
     }
 
-    const { email, firstName, lastName, password } = req.body;
-    const data = await createNewUser({ email, firstName, lastName, password });
+    const {
+      email, firstName, lastName, password,
+    } = req.body;
+    const data = await createNewUser({
+      email, firstName, lastName, password,
+    });
 
     return sendResponse(res, 201, { ...data }, ResponseMessages.genericSuccess);
   } catch (err) {
     return handleCustomError(res, err);
   }
-}
+};
 
 const loginUserController = async (req, res) => {
   try {
@@ -41,7 +46,7 @@ const loginUserController = async (req, res) => {
   } catch (err) {
     return handleCustomError(res, err);
   }
-}
+};
 
 const updateUserController = async (req, res) => {
   try {
@@ -53,13 +58,15 @@ const updateUserController = async (req, res) => {
 
     const { email, firstName, lastName } = req.body;
     const { userId } = req.params;
-    const data = await updateUser({ id: userId, firstName, lastName, email });
+    const data = await updateUser({
+      id: userId, firstName, lastName, email,
+    });
 
     return sendResponse(res, 200, { ...data }, ResponseMessages.genericSuccess);
   } catch (err) {
     return handleCustomError(res, err);
   }
-}
+};
 
 const changeUserPasswordController = async (req, res) => {
   try {
@@ -78,7 +85,7 @@ const changeUserPasswordController = async (req, res) => {
   } catch (err) {
     return handleCustomError(res, err);
   }
-}
+};
 
 const deleteUserController = async (req, res) => {
   try {
@@ -89,7 +96,7 @@ const deleteUserController = async (req, res) => {
   } catch (err) {
     return handleCustomError(res, err);
   }
-}
+};
 
 const getUsersController = async (req, res) => {
   try {
@@ -99,7 +106,7 @@ const getUsersController = async (req, res) => {
   } catch (err) {
     return handleCustomError(res, err);
   }
-}
+};
 
 module.exports = {
   createNewUserController,
@@ -107,5 +114,5 @@ module.exports = {
   updateUserController,
   changeUserPasswordController,
   deleteUserController,
-  getUsersController
+  getUsersController,
 };

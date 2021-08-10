@@ -8,7 +8,7 @@ const validateLoginRequest = (req) => {
     .isLength({ min: 6 })
     .exists();
   return req.validationErrors();
-}
+};
 
 const validateCreateUserRequest = (req) => {
   req
@@ -30,7 +30,7 @@ const validateCreateUserRequest = (req) => {
     .isLength({ min: 3 })
     .exists();
   return req.validationErrors();
-}
+};
 
 const validateUpdateUserRequest = (req) => {
   req
@@ -48,7 +48,7 @@ const validateUpdateUserRequest = (req) => {
     .isLength({ min: 3 })
     .exists();
   return req.validationErrors();
-}
+};
 
 const validateChangePasswordRequest = (req) => {
   req
@@ -60,7 +60,7 @@ const validateChangePasswordRequest = (req) => {
     .isLength({ min: 6 })
     .exists();
   return req.validationErrors();
-}
+};
 
 module.exports = {
   validateLoginRequest,

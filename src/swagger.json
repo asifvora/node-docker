@@ -68,7 +68,7 @@
                         "name": "lastName",
                         "in": "formData",
                         "description": "Last Name",
-                        "type": "number",
+                        "type": "string",
                         "required": true
                     },
                     {

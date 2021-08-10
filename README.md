@@ -9,8 +9,8 @@ For help getting started with Node Express, view online
 #### 2. Clone the repo
 
 ```sh
-$ https://github.com/asifvora/node-api-template.git
-$ cd node-api-template/
+$ https://github.com/asifvora/node-docker.git
+$ cd node-docker/
 ```
 
 #### 3. Install dependency
@@ -104,7 +104,7 @@ Hit me on [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg
 
 MIT License
 
-Copyright (c) 2019 Asif Vora
+Copyright (c) 2021 Asif Vora
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

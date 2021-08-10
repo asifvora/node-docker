@@ -2,7 +2,6 @@ const sendResponse = require('./send-response');
 const ResponseMessages = require('../constants/response-messages');
 
 const handleCustomThrow = (res, error) => {
-  console.log('error', error);
   if (error.code === 400) {
     return sendResponse(res, error.code, {}, error.msg || error.message);
   }
@@ -22,6 +21,6 @@ const handleCustomThrow = (res, error) => {
     return sendResponse(res, error.code, {}, error.msg || error.message);
   }
   return sendResponse(res, 500, error, ResponseMessages.genericError);
-}
+};
 
 module.exports = handleCustomThrow;

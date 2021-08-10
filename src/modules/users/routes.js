@@ -4,7 +4,8 @@ const isAuthenticated = require('../../middlewares/authenticated');
 const {
   loginUserController, createNewUserController,
   updateUserController, changeUserPasswordController,
-  getUsersController, deleteUserController } = require('./controller');
+  getUsersController, deleteUserController,
+} = require('./controller');
 
 userRoutes.get('/users', isAuthenticated, getUsersController);
 userRoutes.post('/users/singup', createNewUserController);

@@ -6,6 +6,6 @@ const generateHash = async (payload) => {
     .update(payload)
     .digest('hex');
   return hash;
-}
+};
 
 module.exports = generateHash;

@@ -7,6 +7,7 @@ if (
   || !process.env.REFRESH_TOKEN_EXPIRY
   || !process.env.REFRESH_TOKEN_ALGO
 ) {
+  // eslint-disable-next-line no-console
   console.log('Please set JWT ENV variables');
   process.exit(-1);
 }

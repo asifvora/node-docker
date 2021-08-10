@@ -41,6 +41,6 @@ const sendResponse = (res, statusCode, data = {}, message) => {
     data,
     message,
   });
-}
+};
 
 module.exports = sendResponse;

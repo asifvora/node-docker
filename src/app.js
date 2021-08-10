@@ -38,6 +38,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(allRoutes);
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Server listening on port ${PORT}.`);
 });
 

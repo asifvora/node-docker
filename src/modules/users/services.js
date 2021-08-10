@@ -44,6 +44,7 @@ const loginUser = async ({ email, password }) => {
     throw err;
   }
   const user = {
+    // eslint-disable-next-line no-underscore-dangle
     id: res._id,
     email: res.email,
     firstName: res.firstName,
@@ -123,7 +124,6 @@ const deleteUser = async ({ id }) => {
     throw err;
   }
   const res = await users.deleteOne({ _id: mongoose.Types.ObjectId(id) });
-  console.log('ass', res);
   if (!res) {
     const msg = 'User not found in records';
     const err = new Error(msg);
